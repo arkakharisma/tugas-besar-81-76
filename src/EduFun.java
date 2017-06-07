@@ -16,26 +16,30 @@ public class EduFun extends JFrame {
     public EduFun()
     {
         setTitle("Edu-Fun: Great Education for Kids");
+        JLabel title = new JLabel("Edu-Fun");
         JButton play = new JButton("PLAY");
 
-        JPanel p1 = new JPanel();
-            p1.setLayout(new GridLayout(0, 1));
-            p1.add(play);
-                play.addActionListener(new listenerPlay());
-
-
-        setLayout(new BorderLayout());
+        setLayout(null);
         setContentPane(new JLabel(new ImageIcon("src/Lighthouse.jpg")));
+        Dimension sizeTitle = title.getPreferredSize();
+        play.setSize(200, 50);
 
-        setLayout(new FlowLayout());
-        add(p1);
-    }
+        title.setBounds(600, 100, sizeTitle.width, sizeTitle.height);
+        play.setBounds(550, 300, play.getWidth(), play.getHeight());
+        add(title);
+        add(play);
 
-
-    class listenerPlay implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            System.out.println("Game Start");
-        }
+//        JPanel p1 = new JPanel();
+//            p1.setLayout(new GridLayout(0, 1));
+//            p1.add(play);
+//                play.addActionListener(new listenerPlay());
+//
+//
+//        setLayout(new BorderLayout());
+//        setContentPane(new JLabel(new ImageIcon("src/Lighthouse.jpg")));
+//
+//        setLayout(new FlowLayout());
+//        add(p1);
     }
 
     public static void main(String[] args)
@@ -47,5 +51,11 @@ public class EduFun extends JFrame {
         app.setVisible(true);
         app.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
+    }
+
+    class listenerPlay implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("Game Start");
+        }
     }
 }
